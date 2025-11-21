@@ -13,33 +13,41 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const form = document.getElementById('registerForm');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registerForm');
 
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    if(password !== confirmPassword){
-        alert("Passwords do not match!");
+    if (!form) {
+        console.error("Form not found!");
         return;
     }
 
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-        await updateProfile(user, {
-            displayName: `${firstName} ${lastName}`
-        });
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-        alert("User registered successfully!");
-        form.reset();
-    } catch (error) {
-        alert(error.message);
-    }
+        if(password !== confirmPassword){
+            alert("Passwords do not match!");
+            return;
+        }
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await updateProfile(user, {
+                displayName: `${firstName} ${lastName}`
+            });
+
+            alert("User registered successfully!");
+            form.reset();
+        } catch (error) {
+            alert(error.message);
+        }
+    });
 });
