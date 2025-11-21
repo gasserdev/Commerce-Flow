@@ -1,3 +1,26 @@
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBQzMGrl9Twu0euqiU_39DkKjreWlFD6Ok",
+    authDomain: "commerceflow-b742b.firebaseapp.com",
+    projectId: "commerceflow-b742b",
+    storageBucket: "commerceflow-b742b.firebasestorage.app",
+    messagingSenderId: "159750863802",
+    appId: "1:159750863802:web:926e046a4209d887917b83",
+    measurementId: "G-MT0L31KE13"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.auth = auth;
+  window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +65,7 @@
             </form>
         </div>
         <div class="photo">
-            <img src="6aac3147719b13bfabe4f38224e54228613e592ae609c0dd1012c920c344fc75.png" alt="">
+            <img src="6aac3147719b13bfabe4f38224e54228613e609c0dd1012c920c344fc75.png" alt="">
         </div>
     </div>
 
@@ -54,17 +77,16 @@
         const errorDiv = document.getElementById("error");
         const checkBox = document.getElementById("check");
 
-    btn.addEventListener("click", function(event) {
+    btn.addEventListener("click", async function(event) {
         event.preventDefault();
 
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
 
-        // --- تحقق الايميل ---
         if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
             errorDiv.textContent = "Please enter a correct Email";
             errorDiv.style.display = "block";
-            return; // stop here
+            return;
         }
         if (email.indexOf("@") === 0) {
             errorDiv.textContent = "Email cannot start with @";
@@ -77,7 +99,6 @@
             return;
         }
 
-        // --- تحقق الباسورد ---
         if (password.length < 8) {
             errorDiv.textContent = "Password must be at least 8 characters";
             errorDiv.style.display = "block";
@@ -98,13 +119,22 @@
             errorDiv.style.display = "block";
             return;
         }
-        // لو كل شيء تمام
+
         errorDiv.style.display = "none";
-        alert("Successfully logged in ✅");
+
+        // ---------- FIREBASE LOGIN ----------
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+            alert("Successfully logged in 🎉");
+            window.location.href = "home.html";
+
+        } catch (error) {
+            errorDiv.textContent = error.message;
+            errorDiv.style.display = "block";
+        }
     });
 });
-
-
     </script>
 </body>
 </html>
