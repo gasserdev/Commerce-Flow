@@ -42,69 +42,10 @@
             </form>
         </div>
         <div class="photo">
-            <img src="6aac3147719b13bfabe4f38224e54228613e592ae609c0dd1012c920c344fc75.png" alt="">
+            <img src="6aac3147719b13bfabe4f38224e54228613e609c0dd1012c920c344fc75.png" alt="">
         </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const btn = document.getElementById("btn");
-        const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("pass");
-        const errorDiv = document.getElementById("error");
-        const checkBox = document.getElementById("check");
-
-    btn.addEventListener("click", function(event) {
-        event.preventDefault();
-
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        // --- تحقق الايميل ---
-        if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
-            errorDiv.textContent = "Please enter a correct Email";
-            errorDiv.style.display = "block";
-            return; // stop here
-        }
-        if (email.indexOf("@") === 0) {
-            errorDiv.textContent = "Email cannot start with @";
-            errorDiv.style.display = "block";
-            return;
-        }
-        if (email.indexOf(" ") !== -1) {
-            errorDiv.textContent = "Email cannot contain spaces";
-            errorDiv.style.display = "block";
-            return;
-        }
-
-        // --- تحقق الباسورد ---
-        if (password.length < 8) {
-            errorDiv.textContent = "Password must be at least 8 characters";
-            errorDiv.style.display = "block";
-            return;
-        }
-        if (!/[0-9]/.test(password)) {
-            errorDiv.textContent = "Password must contain at least one number";
-            errorDiv.style.display = "block";
-            return;
-        }
-        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-            errorDiv.textContent = "Password must contain at least one special character";
-            errorDiv.style.display = "block";
-            return;
-        }
-        if (!checkBox.checked) {
-            errorDiv.textContent = "You must agree to the terms";
-            errorDiv.style.display = "block";
-            return;
-        }
-        // لو كل شيء تمام
-        errorDiv.style.display = "none";
-        alert("Successfully logged in ✅");
-    });
-});
-
-
-    </script>
+    <script type="module" src="login.js"></script>
 </body>
 </html>
