@@ -1,43 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - CommerceFlow</title>
+    <title>Document</title>
     <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    <div class="container">
-        <h2 id="mainTitle">CommerceFlow</h2>
-        <div class="form">
-            <form id="registerForm">>
-                <div class="namesFlex">
-                    <div>
-                        <label for="firstName">First Name</label>
-                        <input class="names" type="text" id="firstName" placeholder="Enter your first name">
+    <div class="all">
+        <div class="head">
+            <img src="rocket.png" alt="logo">
+            <h1>CommerceFlow</h1>
+        </div>
+        <div class="two">
+            <div class="form">
+                <form action="">
+                    <div class="title">
+                        <h2>Create an account</h2>
+                        <p>Get started with CommerceFlow today.Fast, secure,and ready to scale</p>
                     </div>
-                    <div>
-                        <label for="lastName">Last Name</label>
-                        <input class="names" type="text" id="lastName" placeholder="Enter your last name">
+                    <div class="name">
+                        <div class="hight">
+                            <label for="frist">Frist Name</label>
+                            <br>
+                            <input type="text" id="frist" placeholder="John" name="name" required>
+                        </div>
+                       <div class="hight">
+                        <label for="last">Last Name</label>
+                        <br>
+                       <input type="text" id="last" placeholder="Doe" name="name2" required>
+                       </div>
                     </div>
-                </div>
-                <div>
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
-                </div>
-                <div>
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
-                </div>
-                <button type="submit" id="registerBtn">Register</button>
-            </form>
-            <p>Already have an account? <a href="login.html">Login</a></p>
+                    <input type="email" name="email" id="email" placeholder="john.doe@example.com" required>
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" id="pass" required placeholder="Create a strong password">
+                    <label for="confirm">Confirm Password</label>
+                    <input type="password" id="confirm" name="Confirm" placeholder="Confirm Your password">
+                    <div class="check">
+                        <input type="checkbox" name="check" id="check" required>
+                        <p>By clicking "Create account" above ,you acknowledge that you will recive updates from the CommerceFlow's <a href="#">Terms & Conditions</a>,<a href="#">Licensing Agreement privacy Plicy</a></p>
+                    </div>
+                    <button type="submit" id="btn">Register</button>
+                    <p id="result" style="color: red;"></p>
+                    <h4>Already have an account? <a href="../login/login.html">Login</a></h4>
+                </form>
+            </div>
+            <div class="person">
+                <img src="front-view-business-woman-suit_23-2148603018.avif" alt="">
+                <h3>"CommerceFlow has revolutionized how we manage our online presence. the intutive interface and powerful features make it av indispensable tool for growth"</h3>
+                <h4>Samanthane Lee</h4>
+                <p>Founder,Innovate Solutions</p>
+                <h3>Trusted by leading Brands</h3>
+            </div>
         </div>
     </div>
-    <script src="register.js" type="module"></script>
+    <script>
+        document.getElementById("btn").addEventListener("click",function(){
+            const password = document.getElementById("pass").value
+            const confirm = document.getElementById("confirm").value
+            const result = document.getElementById("result")
+            if (password!== confirm){
+                result.textContent ="password isn't true"
+                return;
+            }
+        })
+    </script>
+    
 </body>
 </html>

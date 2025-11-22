@@ -1,120 +1,92 @@
-* {
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
-body {
-    background: #f2f4f7;
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.head {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    /* background-color: #fff; */
-    padding: 30px 20px;
-    border-radius: 10px;
-    /* box-shadow: 0 4px 15px rgba(0,0,0,0.15); */
-    width: 95%;
-    /* max-width: 500px; */
-}
-
-#mainTitle {
+    margin-top: 50px;
     text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #3899FA;
-    margin-bottom: 20px;
-}
 
-.form label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #333;
 }
-
-input {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    font-size: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+.head img{
+    width: 40px;
+    background-color: rgb(8, 137, 250);
+    padding: 5px;
+    border-radius: 5px;
 }
-
-input:focus {
-    border-color: #3899FA;
-    box-shadow: 0 0 5px rgba(56,153,250,0.5);
-    outline: none;
-}
-
-.namesFlex {
+form{
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px; /* زي باقي الحقول */
+    flex-direction: column;
+    margin-right: 20px;
+    border:solid .5px rgb(209, 207, 207);
+    padding: 10px;
+    border-radius: 10px;
 }
-
-.namesFlex div {
-    flex: 1; /* يخلي كل input ياخد نص المساحة تقريبًا */
-}
-
-.namesFlex input {
-    width: 100%; /* يضمن ان كل input يملأ المساحة المتاحة */
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.namesFlex input:focus {
-    border-color: #3899FA;
-    box-shadow: 0 0 5px rgba(56,153,250,0.5);
-    outline: none;
-}
-
-.namesFlex label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #3899FA;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #2575fc;
-}
-
-p {
+form .title{
     text-align: center;
-    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.name{
+   display: grid;
+   grid-template-columns: repeat(2,auto);
+}
+.check{
+    display: flex;
+    align-items: center;
+}
+p{
+    color: rgb(59, 58, 58);
     font-size: 14px;
-    color: #555;
 }
-
-a {
-    color: #3899FA;
+.two{
+    display: flex;
+    
+    justify-content: space-between;
+    margin: 5%;
+}
+.person img{
+    width: 70px;
+    border-radius: 100%;
+}
+input{
+    padding: 8px;
+    border-radius: 8px;
+    border:solid 1px gray;
+    margin: 5px;
+}
+a{
+    color: rgb(8, 137, 250) ;
     text-decoration: none;
-    font-weight: 600;
 }
-
-a:hover {
-    text-decoration: underline;
+button{
+    color: white;
+    background-color:  rgb(8, 137, 250);
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    transition: all .4s;
+}
+button:hover{
+    background-color:  rgb(11, 83, 146);
+    transform: translateY(-3px);
+}
+.person{
+    text-align: center;
+    margin-bottom: 40px;
+     border:solid .5px rgb(233, 229, 229);
+    padding: 10px;
+    border-radius: 10px;
+    height: 50vh;
+}
+.person h4{
+    color: rgb(8, 137, 250);
 }
